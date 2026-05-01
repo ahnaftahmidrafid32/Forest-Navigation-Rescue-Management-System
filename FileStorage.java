@@ -95,7 +95,7 @@ public class FileStorage {
         List<String> lines = new ArrayList<>();
         for (RescueTeam t : teams) {
             String nodeName = t.getCurrentNode() == null ? "" : t.getCurrentNode().getName();
-            // id,name,size,status,nodeName
+            
             lines.add(t.getId() + "," + t.getName() + "," + t.getSize() + "," + t.getStatus().name() + "," + nodeName);
         }
         writeAll(path(TEAMS_FILE), lines);
@@ -125,7 +125,7 @@ public class FileStorage {
         List<String> lines = new ArrayList<>();
         for (Survivor s : survivors) {
             String nodeName = s.getLocation() == null ? "" : s.getLocation().getName();
-            // id,name,condition,found,nodeName
+            
             lines.add(s.getId() + "," + s.getName() + "," + s.getCondition().name() + "," + s.isFound() + "," + nodeName);
         }
         writeAll(path(SURVIVORS_FILE), lines);
@@ -184,7 +184,7 @@ public class FileStorage {
     public void saveAlerts(List<Alert> alerts) throws IOException {
         List<String> lines = new ArrayList<>();
         for (Alert a : alerts) {
-            // id,message,priority,timestamp,active
+            
             lines.add(a.getAlertID() + "," + a.getMessage() + "," + a.getPriority().name() + "," + a.getTimestamp() + "," + a.IsActive());
         }
         writeAll(path(ALERTS_FILE), lines);
@@ -216,7 +216,7 @@ public class FileStorage {
         Files.write(file, lines, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 
-    // Very simple split: we do NOT support commas inside values.
+    
     private static String[] split(String line, int expectedParts) {
         String[] parts = line.split(",", -1);
         if (parts.length >= expectedParts) return parts;
