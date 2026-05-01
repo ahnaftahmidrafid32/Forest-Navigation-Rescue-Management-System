@@ -1,0 +1,5 @@
+package rescue.model;
+
+public enum NodeType {
+    TRAIL, CLEARING, SHELTER, EXIT, HAZARD_ZONE, RIVER, CAMPSITE
+}
