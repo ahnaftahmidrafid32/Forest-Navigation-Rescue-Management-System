@@ -129,7 +129,7 @@ public class FileStorage {
         List<String> lines = new ArrayList<>();
         for (Survivor s : survivors) {
             String nodeName = s.getLocation() == null ? "" : s.getLocation().getName();
-            // id,name,condition,found,nodeName
+            
             lines.add(s.getId() + "," + s.getName() + "," + s.getCondition().name() + "," + s.isFound() + "," + nodeName);
         }
         writeAll(path(SURVIVORS_FILE), lines);
